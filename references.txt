@@ -1,0 +1,12 @@
+Reference:
+
+website:
+python xml etree: https://docs.python.org/2/library/xml.etree.elementtree.html#module-xml.etree.ElementTree
+mongodb docmentation: https://docs.mongodb.com/manual
+python regular expression: https://docs.python.org/2/library/re.html
+stackoverflow: http://stackoverflow.com/
+pymongo docmentation: https://api.mongodb.com/python/current/index.html
+OpenStreetMap sample project: https://docs.google.com/document/d/1F0Vs14oNEs2idFJR3C_OPxwS6L0HPliOii-QpbmrMo4/pub
+
+books:
+Instant MongoDB by Amol Nayak

@@ -1,0 +1,126 @@
+QUIZ: Iterative Parsing
+import xml.etree.cElementTree as ET
+import pprint
+import collections
+def count_tags(filename):
+        tree = ET.parse(filename)
+        root = tree.getroot()
+        
+        elems = [root.tag]
+        for child in root:
+            elems.append(child.tag)
+            if ET.iselement(child):
+                for child_2 in child:
+                    elems.append(child_2.tag)
+                    
+            
+        tags = collections.defaultdict(int)
+        for elem in elems:
+            tags[elem] += 1
+            
+        return tags
+        
+
+        
+QUIZ: Tag Types
+def key_type(element, keys):
+    if element.tag == "tag":
+        attr = element.attrib
+        k = attr['k']
+        if lower.search(k) != None:
+            keys['lower'] += 1
+        elif lower_colon.search(k) != None:
+            keys['lower_colon'] += 1
+        elif problemchars.search(k) != None:
+            keys['problemchars'] += 1
+        else:
+            keys['other'] += 1    
+    return keys
+
+
+
+QUIZ: Exploring Users
+def get_user(element):
+    user = element.get('uid')
+    return user
+def process_map(filename):
+    users = set()
+    for _, element in ET.iterparse(filename):
+        if get_user(element) != None:
+            users.add(get_user(element))
+    return users 
+    
+    
+
+QUIZ: Improving Street Names
+mapping = { 
+            "St.": "Street",
+            "Ave": "Avenue",
+            "Rd.": "Road"
+            }
+def update_name(name, mapping):    
+    for k in mapping:
+        if k in name:
+            mapping_name = name.replace(k, mapping[k])
+    return mapping_name
+    
+
+
+    
+QUIZ: Preparing for Database
+CREATED = [ "version", "changeset", "timestamp", "user", "uid"]
+ADDRESS = [ "housenumber", "postcode", "street"]
+
+def shape_element(element):
+    node = {}
+    if element.tag == "node" or element.tag == "way" :
+        node['id'] = element.get("id")
+        if element.get("visible"):
+            node['visible'] = element.get("visible")
+        values = [element.get("version"), element.get("changeset"), element.get("timestamp"), element.get("user"), element.get("uid")]
+        i = 0
+        created_dict = {}
+        for item in CREATED:
+            created_dict[item] = values[i]
+            i += 1
+        node['created'] = created_dict
+        VAL = []
+        if element.find("tag") != None:
+            address_dict = {}
+            for child in element: 
+                if child.tag == "tag":
+                    d = {}
+                    if ":" in child.get("k"):
+                        k_lst = child.get("k").split(":")
+                        if len(k_lst) == 2:
+                            k = k_lst[1]
+                            d[k] = child.get("v")
+                            for address in ADDRESS:
+                                if address == k:
+                                    address_dict[address] = d[address]
+                            node['address'] = address_dict
+                    elif ":" not in child.get("k"):
+                        k = child.get("k")
+                        d[k] = child.get("v")
+                        if "amenity" in k:
+                            node['amenity'] = d["amenity"]
+                        if "cuisine" in k:
+                            node['cuisine'] = d["cuisine"]
+                        if "name" in k:
+                            node['name'] = d["name"]
+                        if "phone" in k:
+                            node['phone'] = d["phone"]
+        if element.tag == "node":
+            node['type'] = "node"
+            node['pos'] = [element.get("lat"), element.get("lon")]
+        elif element.tag == "way":
+            node['type'] = "way"
+            node_refs = []
+            for child in element:
+                if child.tag == "nd":
+                    node_refs.append(child.get("ref"))
+            node['node_refs'] = node_refs
+        
+        return node
+    else:
+        return None
