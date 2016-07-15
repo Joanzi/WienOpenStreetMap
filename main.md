@@ -1,5 +1,5 @@
-**Challenges Encountered During the Wrangling**   
-  * Getting Sunday Service Time
+[**Challenges Encountered During the Wrangling**][1]  
+  * [Getting Sunday Service Time][2]
   * Update Phone Format
   
 **Data Overview**
@@ -9,19 +9,15 @@
 **Additional Data Exploring**
 **Contribution Suggestion**
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+[1]: #challenges
+[2]: #sunday
 
-##**Challenges Encountered During the Wrangling**  
+<p id="challenges">##**Challenges Encountered During the Wrangling**  </p>
 There are two formatting problems I need to deal with:
   * opening_hours tags have differents formats, some put Monday through Friday together, with separate weekends and public holiday, in the form of Mo-Fr, Sa, Su, PH; some just separate them all with different opening time for some day, others distinct opening hours for seasons, and I need to get Sunday service time.  
   * phone formats are not very standard, either with too many dashes and slashes, or with no space between numbers at all.
 
-###Getting Sunday Service Time
+<p id="sunday">###Getting Sunday Service Time</p>
 When checking the small sample osm file, I found that in the "opening_hours" tag, there are lots of different expressions, in the form of
 day and time or time-only, some with PH(public holiday) but some not, etc. I want to find out how many of them are available on Sundays.
 
