@@ -12,7 +12,7 @@
 [1]: #challenges
 [2]: #sunday
 
-<p id="challenges">##**Challenges Encountered During the Wrangling**  </p>
+<p id="challenges">##**<p id="challenges">Challenges Encountered During the Wrangling</p>**  
 There are two formatting problems I need to deal with:
   * opening_hours tags have differents formats, some put Monday through Friday together, with separate weekends and public holiday, in the form of Mo-Fr, Sa, Su, PH; some just separate them all with different opening time for some day, others distinct opening hours for seasons, and I need to get Sunday service time.  
   * phone formats are not very standard, either with too many dashes and slashes, or with no space between numbers at all.
