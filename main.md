@@ -56,8 +56,8 @@ day and time or time-only, some with PH(public holiday) but some not, etc. I wan
                                 child.set("v", phone)
         return element
         
-##**<p id="overview">Data Overview**</p>
-  * **<p id="query">Here is the data querying part**</p>
+##**<p id="overview">Data Overview</p>**
+  * **<p id="query">Here is the data querying part</p>**
   
 ###File Size
 wien.osm -------- 757MB  
@@ -103,7 +103,7 @@ wien.json ------- 699MB
 \>>>{u'count': 686, u'_id': 1}
 
 
-  * **<p id="statistics>And here is an overview of some statistics**</p>
+  * **<p id="statistics">And here is an overview of some statistics</p>**
   
 **_\# Obviously, there are quite a lot of restaurant "amenity"s in the dataset, here is the number of restaurant amenity in the dataset_**
 >db.wien.find({"amenity": "restaurant"}).count()
@@ -132,7 +132,7 @@ wien.json ------- 699MB
 
 **_The numbers here are challenging, there could be many reasons why they are so low compared to the total number of restaurants. Probably, most of the restaurants don't realize that it is necessary to make smoking setups for people who don't smoke or who don't like that smoky smell; more than smoking-resistant awareness, restaurants may pay less attention to the importance of wheelchair accommodation. But as likely as the situation above, it is possible that the dataset is not complete enough, contributors made their huge efforts to contribute the dataset, it's nothing but normal that some details could be missed, if this is the case, all we need is just a little more carefulness to make the dataset more perfect._**
   
-##**<p id="exploring">Additional Data Exploring**</p>
+##**<p id="exploring">Additional Data Exploring</p>**
 **_\# top 10 cuisine_**
 >db.wien.aggregate([
     {"$match": {"cuisine": {"$exists": True}}},
@@ -193,7 +193,7 @@ wien.json ------- 699MB
 {u'count': 10, u'_id': u'golf'}  
 {u'count': 7, u'_id': u'equestrian'}
 
-##**<p id="suggestion">Contribution Suggestion**</p>
+##**<p id="suggestion">Contribution Suggestion</p>**
 **_The open map is constributed mostly by very few people, and it would be nice that more and more people could make their own contributions to this big open map project. I think one of the reason why so few people did that is because many people don't know it, they don't know that getting started to make contribution actually is very simple, just one account and adding their neighborhood into the map._** 
 
 **_OpenStreetMap is an amazing project that aims at building an open geographical database of the whole world. If it can by all means get more people to know about it, there will be more people that would like to contribute. But the problem is, it is somehow a technical job to contribute to the project, which could be difficult for some people to do it. Futhermore, for those people who don't care about anything about the project, they won't have interest in doing any contribution, so that OpenStreeMap can attract lots of people who do care and make huge contribution, but at the meantime in vain attract those who don't._**
